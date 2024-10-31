@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import yaml
 
 # Load parameters from YAML
@@ -46,7 +46,7 @@ except Exception as e:
 
 # Apply Bag of Words (CountVectorizer)
 try:
-    vectorizer = CountVectorizer(max_features=max_features)
+    vectorizer = TfidfVectorizer(max_features=max_features)
     X_train_bow = vectorizer.fit_transform(X_train)  # Fit and transform training data
     X_test_bow = vectorizer.transform(X_test)        # Transform test data using the same vectorizer
 except ValueError as e:
@@ -73,8 +73,8 @@ except Exception as e:
 
 # Save the DataFrames to CSV files
 try:
-    train_df.to_csv(os.path.join(data_path, "train_bow.csv"), index=False)
-    test_df.to_csv(os.path.join(data_path, "test_bow.csv"), index=False)
+    train_df.to_csv(os.path.join(data_path, "train_tfidf.csv"), index=False)
+    test_df.to_csv(os.path.join(data_path, "test_tfidf.csv"), index=False)
     print("Feature data saved successfully.")
 except Exception as e:
     raise Exception(f"Error saving CSV files: {e}")

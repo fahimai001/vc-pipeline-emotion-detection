@@ -18,7 +18,7 @@ except yaml.YAMLError as e:
 
 # Load training data
 try:
-    train_data = pd.read_csv('./data/features/train_bow.csv')
+    train_data = pd.read_csv('./data/features/train_tfidf.csv')
 except FileNotFoundError as e:
     raise Exception(f"CSV file not found: {e}")
 except pd.errors.EmptyDataError:

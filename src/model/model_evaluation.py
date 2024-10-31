@@ -19,7 +19,7 @@ except Exception as e:
 
 # Load the test data
 try:
-    test_data = pd.read_csv('./data/features/test_bow.csv')
+    test_data = pd.read_csv('./data/features/test_tfidf.csv')
 except FileNotFoundError as e:
     raise Exception(f"Test CSV file not found: {e}")
 except pd.errors.EmptyDataError:
